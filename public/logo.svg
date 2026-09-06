@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" fill="none" role="img" aria-label="WChampFX">
+  <defs>
+    <linearGradient id="wfxGold" x1="95" y1="18" x2="185" y2="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff4b8"/>
+      <stop offset=".45" stop-color="#ffd24d"/>
+      <stop offset="1" stop-color="#bd7c12"/>
+    </linearGradient>
+    <clipPath id="wfxL"><path d="M0 0 H150 L40 150 H0 Z"/></clipPath>
+    <clipPath id="wfxR"><path d="M158 0 H200 V150 H48 Z"/></clipPath>
+  </defs>
+  <g stroke-width="33" stroke-linejoin="miter" stroke-miterlimit="14">
+    <path clip-path="url(#wfxL)" stroke="#ffffff" d="M27 22 L64 128 L100 62 L136 128 L173 22"/>
+    <path clip-path="url(#wfxR)" stroke="url(#wfxGold)" d="M27 22 L64 128 L100 62 L136 128 L173 22"/>
+  </g>
+</svg>
