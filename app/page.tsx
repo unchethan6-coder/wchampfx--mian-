@@ -22,9 +22,20 @@ const testimonials = [
   ['“The biggest shift was understanding that passing and preserving are two different games.”', 'WChampFX student'],
   ['“Simple, structured and practical. I finally knew what to focus on next.”', 'WChampFX student'],
 ]
+const quizQuestions = [
+  ['What&apos;s your trading experience?', ['Just starting', 'Under 1 year', '1–2 years', '2–5 years', '5+ years']],
+  ['Are you currently trading a prop firm account?', ['No', 'Evaluation stage', 'Funded', 'Previously funded']],
+  ['What&apos;s the largest account size you&apos;ve worked with?', ['Never used a prop firm', '$10K–$25K', '$50K', '$100K', '$200K+', 'Multiple funded accounts']],
+  ['What&apos;s currently holding you back?', ['I don&apos;t have a clear strategy', 'Risk management', 'Psychology / discipline', 'Passing evaluations', 'Keeping funded accounts', 'Getting payouts consistently', 'Scaling accounts']],
+  ['What&apos;s your current goal?', ['Learn trading properly', 'Pass my first evaluation', 'Get my first funded account', 'Get my first payout', 'Build $100K+ funding', 'Build toward $500K+', 'Build toward $1M across accounts']],
+  ['How much time can you realistically dedicate?', ['< 5 hours/week', '5–10 hours', '10–20 hours', '20+ hours', 'Full-time']],
+]
 
 export default function Page() {
   const [submitted, setSubmitted] = useState(false)
+  const [quizStep, setQuizStep] = useState(0)
+  const [quizAnswers, setQuizAnswers] = useState<string[]>([])
+  const [showRoadmap, setShowRoadmap] = useState(false)
   const [showExit, setShowExit] = useState(false)
   const exitShown = useRef(false)
 
@@ -52,6 +63,27 @@ export default function Page() {
     const data = new FormData(event.currentTarget)
     window.localStorage.setItem('wchampfx-lead', JSON.stringify({ firstName: data.get('firstName'), email: data.get('email') }))
     setSubmitted(true)
+    setQuizStep(0)
+    setQuizAnswers([])
+    setShowRoadmap(false)
+  }
+
+  function answerQuiz(answer: string) {
+    const nextAnswers = [...quizAnswers, answer]
+    setQuizAnswers(nextAnswers)
+    if (quizStep === quizQuestions.length - 1) {
+      window.localStorage.setItem('wchampfx-quiz', JSON.stringify(nextAnswers))
+      setShowRoadmap(true)
+    } else {
+      setQuizStep((step) => step + 1)
+    }
+  }
+
+  function resetLeadFlow() {
+    setSubmitted(false)
+    setShowRoadmap(false)
+    setQuizStep(0)
+    setQuizAnswers([])
   }
 
   function scrollToForm() {
@@ -62,7 +94,7 @@ export default function Page() {
     <>
       <header className="site-header"><div className="container nav"><a className="brand" href="#top">WCHAMPFX</a><nav className="nav-links" aria-label="Primary navigation"><a href="#proof">Results</a><a href="#dan">About Dan</a><a href="#learn">Free Training</a><button className="btn small" onClick={scrollToForm}>GET FREE ROADMAP</button></nav></div></header>
       <main id="top">
-        <section className="hero"><div className="container hero-grid"><div className="hero-copy"><span className="eyebrow">Free WChampFX Training</span><h1>The <span>$1M Prop Funding Roadmap</span></h1><p className="lead">See the framework Dan Cheung uses to structure strategy, risk, funded accounts and account progression.</p><div className="proof-row"><span className="proof-pill">$500K+ verified payouts*</span><span className="proof-pill">Prop firm leaderboard trader</span><span className="proof-pill">347+ WChampFX students</span></div></div><aside className="form-card" id="lead-form"><div className="media-placeholder"><div className="media-label"><span className="micro">FEATURED TRAINING</span><strong>Dan Cheung</strong></div><div className="play" aria-hidden="true">▶</div></div>{submitted ? <div className="success-state"><span className="eyebrow">You&apos;re in</span><h2>Your roadmap is ready.</h2><p>Check your inbox for the free WChampFX training and next steps.</p><button className="btn full" onClick={() => setSubmitted(false)}>Submit another email</button></div> : <><div className="form-title">Get the roadmap free</div><form onSubmit={handleSubmit}><div className="form-grid"><Field label="First Name" name="firstName" placeholder="First name"/><Field label="Email" name="email" type="email" placeholder="you@email.com"/><Field label="WhatsApp" name="whatsapp" type="tel" placeholder="+971..."/><label className="field">Country<select name="country" required><option value="">Select country</option><option>United Kingdom</option><option>United States</option><option>Germany</option><option>United Arab Emirates</option><option>Australia</option><option>Canada</option><option>Other</option></select></label><div className="field full"><button className="btn full" type="submit">GET THE FREE ROADMAP →</button></div></div></form><div className="form-meta micro">Free access. Takes less than 30 seconds.</div><div className="risk-note">Educational content only. Trading and prop firm evaluations involve risk. Results are not guaranteed.</div></>}</aside></div></section>
+        <section className="hero"><div className="container hero-grid"><div className="hero-copy"><span className="eyebrow">Free WChampFX Training</span><h1>The <span>$1M Prop Funding Roadmap</span></h1><p className="lead">See the framework Dan Cheung uses to structure strategy, risk, funded accounts and account progression.</p><div className="proof-row"><span className="proof-pill">$500K+ verified payouts*</span><span className="proof-pill">Prop firm leaderboard trader</span><span className="proof-pill">347+ WChampFX students</span></div></div><aside className="form-card" id="lead-form"><div className="media-placeholder"><div className="media-label"><span className="micro">FEATURED TRAINING</span><strong>Dan Cheung</strong></div><div className="play" aria-hidden="true">▶</div></div>{submitted ? showRoadmap ? <div className="success-state"><span className="eyebrow">Your roadmap is ready</span><h2>Start with your personal next step.</h2><p>Based on your answers, we&apos;ll tailor the WChampFX funding roadmap and send the next steps to your inbox.</p><div className="roadmap-result"><span className="micro">YOUR JOURNEY</span><strong>{quizAnswers[3] || 'Build a repeatable process'}</strong><span className="muted">Focus on the stage that will create the most progress next.</span></div><button className="btn full" onClick={resetLeadFlow}>Submit another email</button></div> : <div className="quiz-state"><div className="quiz-heading"><span className="eyebrow">Build Your Personal Funding Roadmap</span><h2>6 questions</h2><p>Approximately 60 seconds. Your answers help us point you toward the right next step.</p></div><div className="quiz-progress"><span>Question {quizStep + 1} of {quizQuestions.length}</span><span>{Math.round(((quizStep + 1) / quizQuestions.length) * 100)}%</span></div><div className="quiz-bar"><span style={{ width: `${((quizStep + 1) / quizQuestions.length) * 100}%` }} /></div><h3 className="quiz-question">{quizQuestions[quizStep][0]}</h3><div className="quiz-options">{(quizQuestions[quizStep][1] as string[]).map((answer) => <button className="quiz-option" key={answer} onClick={() => answerQuiz(answer)}>{answer}<span aria-hidden="true">→</span></button>)}</div></div> : <><div className="form-title">Get the roadmap free</div><form onSubmit={handleSubmit}><div className="form-grid"><Field label="First Name" name="firstName" placeholder="First name"/><Field label="Email" name="email" type="email" placeholder="you@email.com"/><Field label="WhatsApp" name="whatsapp" type="tel" placeholder="+971..."/><label className="field">Country<select name="country" required><option value="">Select country</option><option>United Kingdom</option><option>United States</option><option>Germany</option><option>United Arab Emirates</option><option>Australia</option><option>Canada</option><option>Other</option></select></label><div className="field full"><button className="btn full" type="submit">GET THE FREE ROADMAP →</button></div></div></form><div className="form-meta micro">Free access. Takes less than 30 seconds.</div><div className="risk-note">Educational content only. Trading and prop firm evaluations involve risk. Results are not guaranteed.</div></>}</aside></div></section>
 
         <section className="section-sm"><div className="container roadmap-wrap center"><span className="eyebrow">Roadmap Preview</span><h2>Inside The $1M Funding Roadmap</h2><div className="roadmap">{roadmap.map((item, index) => <div className="road-step" key={item}><div className="step-dot">{index + 1}</div><span>{item}</span></div>)}</div><button className="btn" onClick={scrollToForm}>Get My Free Roadmap</button></div></section>
 
