@@ -23,7 +23,7 @@ const testimonials = [
   ['“Simple, structured and practical. I finally knew what to focus on next.”', 'WChampFX student'],
 ]
 const quizQuestions = [
-  ['What&apos;s your trading experience?', ['Just starting', 'Under 1 year', '1–2 years', '2–5 years', '5+ years']],
+  ["What's your trading experience?", ['Just starting', 'Under 1 year', '1–2 years', '2–5 years', '5+ years']],
   ['Are you currently trading a prop firm account?', ['No', 'Evaluation stage', 'Funded', 'Previously funded']],
   ['What&apos;s the largest account size you&apos;ve worked with?', ['Never used a prop firm', '$10K–$25K', '$50K', '$100K', '$200K+', 'Multiple funded accounts']],
   ['What&apos;s currently holding you back?', ['I don&apos;t have a clear strategy', 'Risk management', 'Psychology / discipline', 'Passing evaluations', 'Keeping funded accounts', 'Getting payouts consistently', 'Scaling accounts']],
