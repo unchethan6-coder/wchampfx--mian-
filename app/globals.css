@@ -37,7 +37,7 @@ p { margin:0; }
 .nav-links { display:flex; align-items:center; gap:28px; color:#cbd7e3; font-size:14px; }
 .nav-links a:hover { color:#fff; }
 .hero { padding:76px 0 68px; }
-.hero-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:56px; align-items:center; }
+.hero-grid { display:grid; grid-template-columns:1fr; gap:56px; align-items:center; }.hero .form-card { display:none; }
 .hero-copy { display:flex; flex-direction:column; gap:24px; }
 .hero-copy h1 span { background:linear-gradient(90deg,#fff 0%,#d9ff76 62%,#b9f125 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .proof-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:6px; }
