@@ -1016,3 +1016,41 @@ footer {
     right: 18px;
   }
 }
+
+
+/* Mobile layout refinements */
+@media (max-width: 767px) {
+  html { scroll-padding-top: 76px; }
+  .container { width: min(100% - 32px, 1180px); }
+  .section, .section-sm { padding-top: 56px; padding-bottom: 56px; }
+  h1 { font-size: clamp(2.35rem, 11vw, 3.25rem); line-height: 1.04; letter-spacing: -.045em; }
+  h2 { font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1.1; letter-spacing: -.04em; }
+  .lead { font-size: 1rem; line-height: 1.65; }
+  .vsl-section { padding-top: 88px; }
+  .vsl-heading { margin-bottom: 22px; }
+  .vsl-frame { border-radius: 18px; overflow: hidden; }
+  .vsl-frame iframe { aspect-ratio: 16 / 9; min-height: 0; }
+  .hero { padding-top: 36px; }
+  .hero-grid, .authority, .case { grid-template-columns: 1fr; gap: 24px; }
+  .proof-row { display: grid; grid-template-columns: 1fr; }
+  .proof-pill { width: 100%; }
+  .media-placeholder { min-height: 180px; }
+  .hero-training-card { min-width: 0; }
+  .typeform-embed { min-height: 850px; }
+  .roadmap { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(152px, 78vw); justify-content: start; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding: 4px 2px 14px; }
+  .road-step { scroll-snap-align: start; }
+  .authority, .case { padding: 20px; border-radius: 22px; }
+  .dan-visual { min-height: 300px; }
+  .portrait-mark { top: 20px; right: 24px; font-size: 96px; }
+  .dan-visual .dan-copy { left: 20px; right: 20px; bottom: 20px; }
+  .dan-copy strong { font-size: 28px; }
+  .stat-list, .case-stats { grid-template-columns: 1fr 1fr; }
+  .testimonials { grid-template-columns: 1fr; gap: 12px; }
+  .quote { padding: 22px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .footer-links { flex-wrap: wrap; gap: 12px 20px; }
+  .mobile-sticky { padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); }
+  .mobile-sticky .btn { width: 100%; min-height: 52px; }
+}
+
+@media (max-width: 767px) { .container { width: calc(100% - 32px); } }
