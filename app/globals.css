@@ -1062,3 +1062,5 @@ footer {
 @media (max-width: 767px) { .typeform-embed { min-height: 520px; height: 520px; } }
 
 @media (max-width: 767px) { .roadmap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row; gap: 12px; overflow: visible; padding: 12px 0; } .road-step { min-width: 0; display: grid; grid-template-columns: 46px minmax(0, 1fr); align-items: center; gap: 9px; text-align: left; } .road-step::after { display: none; } .step-dot { width: 46px; height: 46px; font-size: 18px; } .road-step span { font-size: 10px; line-height: 1.25; letter-spacing: .035em; } }
+
+.disclaimer { font-size: 11px; line-height: 1.55; color: var(--muted); } .disclaimer strong { color: var(--foreground); } .disclaimer p { margin: 0.55rem 0; } .disclaimer a { text-decoration: underline; text-underline-offset: 2px; } @media (max-width: 767px) { .disclaimer { font-size: 10px; line-height: 1.5; } }
