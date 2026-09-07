@@ -1214,11 +1214,11 @@ footer {
   }
 
   .popup.popup-lead {
-    width: min(100%, 560px);
-    max-width: 560px;
-    max-height: 86dvh;
-    padding: 10px;
-    border-radius: 18px;
+    width: min(100%, 470px);
+    max-width: 470px;
+    max-height: 78dvh;
+    padding: 8px;
+    border-radius: 16px;
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
@@ -1237,10 +1237,10 @@ footer {
 
   .popup-media {
     clear: both;
-    min-height: 128px;
-    padding: 14px;
-    margin-bottom: 12px;
-    border-radius: 14px;
+    min-height: 102px;
+    padding: 11px;
+    margin-bottom: 9px;
+    border-radius: 12px;
   }
 
   .popup-media strong {
@@ -1278,9 +1278,9 @@ footer {
 
   input,
   select {
-    height: 48px;
+    height: 42px;
     min-width: 0;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .popup-submit {
@@ -1296,9 +1296,10 @@ footer {
   }
 
   .popup-quiz .quiz-option {
-    min-height: 46px;
-    padding: 10px 12px;
-    border-radius: 12px;
+    min-height: 40px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    font-size: 14px;
   }
 
   .popup-quiz .quiz-heading p {
