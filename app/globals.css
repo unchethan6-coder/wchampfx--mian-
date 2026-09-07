@@ -74,6 +74,13 @@ button {
   padding: 64px 0;
 }
 
+.vsl-section { padding:32px 0 24px; }
+.vsl-heading { max-width:760px; margin:0 auto 22px; text-align:center; }
+.vsl-heading h2 { margin-top:10px; font-size:clamp(30px,4vw,52px); line-height:1.08; text-wrap:balance; }
+.vsl-heading p { margin:12px auto 0; color:var(--muted); max-width:620px; }
+.vsl-frame { width:100%; aspect-ratio:16 / 9; overflow:hidden; border:1px solid rgba(255,255,255,.14); border-radius:24px; background:#071522; box-shadow:0 24px 70px rgba(0,0,0,.3); }
+.vsl-frame iframe { display:block; width:100%; height:100%; border:0; }
+
 .center {
   text-align: center;
 }
@@ -1004,7 +1011,7 @@ footer {
   }
 }
 
-@media(max-width:620px) {
+@media(max-width:620px) { .vsl-section { padding:24px 0 12px; }.vsl-frame { border-radius:16px; }
   .container {
     width: min(100% - 26px, 1180px);
   }
