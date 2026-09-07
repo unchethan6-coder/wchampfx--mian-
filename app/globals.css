@@ -202,21 +202,13 @@ p {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: 1fr;
   gap: 56px;
   align-items: center;
 }
 
 .hero .form-card {
   display: none;
-}
-
-.hero-training-card {
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(18, 42, 68, .95), rgba(8, 25, 44, .96));
-  border-radius: 28px;
-  padding: 22px;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .28);
 }
 
 .hero-copy {
@@ -252,9 +244,6 @@ p {
   position: relative;
   overflow: hidden;
 }
-
-.hero-vsl { position:relative; width:100%; aspect-ratio:16 / 9; overflow:hidden; border-radius:20px; border:1px solid rgba(255,255,255,.1); background:#07111d; margin-bottom:20px; }
-.hero-vsl iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
 
 .media-placeholder {
   min-height: 260px;
@@ -857,9 +846,9 @@ footer {
   margin-top: 3px;
 }
 
-.floating-vsl { position:fixed; right:22px; bottom:22px; z-index:70; width:min(360px,calc(100vw - 32px)); padding:10px; border:1px solid rgba(233,190,87,.45); border-radius:18px; background:rgba(7,17,29,.96); box-shadow:0 20px 60px rgba(0,0,0,.4); }.floating-vsl-head { display:flex; align-items:center; justify-content:space-between; padding:2px 4px 9px 6px; color:rgb(255,244,148); font-size:11px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }.floating-vsl-head button { border:0; background:transparent; color:#d9e4ee; font-size:24px; line-height:1; cursor:pointer; }.floating-vsl-frame { position:relative; aspect-ratio:16 / 9; overflow:hidden; border-radius:11px; background:#000; }.floating-vsl-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }.mobile-sticky {
+.mobile-sticky {
   display: none;
-  }
+}
 
 .quiz-state {
   display: flex;
@@ -1116,12 +1105,10 @@ footer {
     z-index: 80;
   }
 
-.mobile-sticky .btn {
-  width: 100%;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, .45);
+  .mobile-sticky .btn {
+    width: 100%;
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .45);
   }
-
-  .floating-vsl { right: 12px; bottom: 82px; width: min(320px, calc(100vw - 24px)); }
 
   footer {
     padding-bottom: 120px;
